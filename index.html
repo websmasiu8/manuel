@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -1023,6 +1022,111 @@
         transform: none;
       }
     }
+
+    /* TÉRMINOS Y CONDICIONES / AVISO DE PRIVACIDAD */
+
+    .legal-link {
+      color: var(--cyan);
+      cursor: pointer;
+      background: none;
+      border: 0;
+      font: inherit;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .legal-link:hover {
+      color: #fff;
+    }
+
+    .legal-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(3, 6, 13, .82);
+      backdrop-filter: blur(9px);
+    }
+
+    .legal-modal.open {
+      display: flex;
+    }
+
+    .legal-panel {
+      width: min(780px, 100%);
+      max-height: min(82vh, 850px);
+      overflow-y: auto;
+      position: relative;
+      padding: 36px;
+      border: 1px solid rgba(98,230,213,.25);
+      border-radius: 14px;
+      background: #101625;
+      box-shadow: 0 25px 90px rgba(0,0,0,.55);
+    }
+
+    .legal-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      width: 36px;
+      height: 36px;
+      margin: -12px -12px 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #182235;
+      color: var(--text);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .legal-panel h2 {
+      margin: 10px 0 18px;
+      font-size: clamp(25px, 4vw, 36px);
+      line-height: 1.15;
+      letter-spacing: -.05em;
+    }
+
+    .legal-panel h3 {
+      margin: 24px 0 8px;
+      color: var(--cyan);
+      font-size: 15px;
+    }
+
+    .legal-panel p,
+    .legal-panel li {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .legal-panel p {
+      margin-bottom: 10px;
+    }
+
+    .legal-panel ul {
+      padding-left: 20px;
+      margin: 8px 0 14px;
+    }
+
+    .legal-panel a {
+      color: var(--cyan);
+      text-decoration: underline;
+    }
+
+    @media(max-width:600px) {
+      .legal-modal {
+        padding: 10px;
+      }
+
+      .legal-panel {
+        padding: 25px 20px;
+        max-height: 90vh;
+      }
+    }
+
   </style>
 </head>
 
@@ -1508,9 +1612,133 @@
 
       <span>
         DISEÑADO PARA CONECTAR EL MUNDO DIGITAL Y FÍSICO.
+        <span aria-hidden="true"> · </span>
+        <button class="legal-link" id="openLegal" type="button">
+          TÉRMINOS Y PRIVACIDAD
+        </button>
       </span>
     </div>
   </footer>
+
+  <!-- VENTANA DE TÉRMINOS Y CONDICIONES / AVISO DE PRIVACIDAD -->
+  <div class="legal-modal" id="legalModal" aria-hidden="true">
+    <section
+      class="legal-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="legalTitle"
+      tabindex="-1">
+
+      <button class="legal-close" id="closeLegal" type="button" aria-label="Cerrar">
+        ×
+      </button>
+
+      <div class="mono">INFORMACIÓN LEGAL</div>
+      <h2 id="legalTitle">Términos y <span class="gradient">privacidad.</span></h2>
+
+      <p><strong>Última actualización:</strong> 14 de noviembre de 2026.</p>
+
+      <h3>1. Propiedad intelectual</h3>
+      <p>
+        El contenido original de este sitio web es propiedad exclusiva de
+        Manuel Serrato. Esto incluye, entre otros elementos, el diseño,
+        la estructura, los textos originales, los elementos gráficos,
+        las ilustraciones, la identidad visual y el código fuente desarrollado
+        para este portafolio.
+      </p>
+
+      <p>
+        No está permitido copiar, reproducir, distribuir, modificar, publicar
+        o utilizar con fines comerciales el contenido original de esta página
+        sin autorización previa y expresa de su titular.
+      </p>
+
+      <p>
+        Los nombres, marcas, logotipos, imágenes, herramientas, tipografías
+        o recursos de terceros que puedan aparecer en el sitio pertenecen
+        a sus respectivos titulares y se rigen por sus propias condiciones
+        y licencias. Su inclusión no implica que Manuel Serrato sea propietario
+        de dichos elementos.
+      </p>
+
+      <h3>2. Condiciones de uso</h3>
+      <p>
+        El usuario se compromete a utilizar este sitio de manera responsable,
+        lícita y respetuosa. No debe realizar acciones que afecten su
+        funcionamiento, seguridad, disponibilidad o contenido, ni intentar
+        acceder sin autorización a sus sistemas o información.
+      </p>
+
+      <h3>3. Información del portafolio</h3>
+      <p>
+        Este sitio tiene fines informativos y de presentación profesional.
+        Los proyectos, servicios y ejemplos se muestran para dar a conocer
+        trabajos y capacidades. La información puede actualizarse, cambiar
+        o retirarse en cualquier momento.
+      </p>
+
+      <h3>4. Aviso de privacidad</h3>
+      <p>
+        Este portafolio presenta información profesional, proyectos y medios
+        de contacto. Actualmente, el sitio no incluye formularios propios
+        para recopilar datos personales. Al seleccionar el enlace de correo,
+        se abrirá la aplicación de correo configurada en el dispositivo del
+        usuario, quien decide qué información desea enviar.
+      </p>
+
+      <p>
+        Si una persona contacta voluntariamente a Manuel Serrato por correo
+        electrónico, los datos incluidos en su mensaje podrán utilizarse
+        para responder consultas, atender solicitudes y mantener comunicación
+        relacionada con el motivo del contacto. Estos datos no se venden
+        ni se comercializan.
+      </p>
+
+      <h3>5. Derechos sobre los datos personales</h3>
+      <p>
+        El titular de los datos puede solicitar información sobre el
+        tratamiento de sus datos, su actualización, corrección o supresión,
+        cuando corresponda conforme a la normativa aplicable. Para realizar
+        una consulta o solicitud relacionada con datos personales, puede
+        escribir a
+        <a href="mailto:websmasiu@gmail.com">websmasiu@gmail.com</a>.
+      </p>
+
+      <p>
+        El tratamiento de datos personales se realizará de acuerdo con las
+        disposiciones aplicables en Colombia, incluida la Ley 1581 de 2012
+        y sus normas reglamentarias, según corresponda.
+      </p>
+
+      <h3>6. Enlaces externos</h3>
+      <p>
+        Este sitio puede incluir enlaces a páginas o plataformas de terceros.
+        Manuel Serrato no controla sus contenidos, disponibilidad ni políticas
+        de privacidad, por lo que se recomienda revisar las condiciones de
+        cada servicio externo antes de utilizarlo.
+      </p>
+
+      <h3>7. Cambios en estos términos</h3>
+      <p>
+        Estos términos y el aviso de privacidad pueden modificarse para
+        reflejar cambios en el sitio, sus funciones o las disposiciones
+        aplicables. La versión vigente será la publicada en esta página.
+      </p>
+
+      <h3>8. Contacto</h3>
+      <p>
+        Para preguntas sobre estos términos, el contenido del sitio o el
+        tratamiento de datos personales, puedes comunicarte con:
+      </p>
+
+      <p>
+        <strong>Manuel Serrato</strong><br>
+        Colombia<br>
+        <a href="mailto:websmasiu@gmail.com">websmasiu@gmail.com</a>
+      </p>
+
+    </section>
+  </div>
 
   <!-- JAVASCRIPT -->
   <script>
@@ -1574,6 +1802,39 @@
       observer.observe(el);
     });
 
+    // ABRIR Y CERRAR TÉRMINOS Y AVISO DE PRIVACIDAD
+    const legalModal = document.getElementById('legalModal');
+    const openLegal = document.getElementById('openLegal');
+    const closeLegal = document.getElementById('closeLegal');
+    const legalPanel = legalModal.querySelector('.legal-panel');
+
+    function showLegal() {
+      legalModal.classList.add('open');
+      legalModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      legalPanel.focus();
+    }
+
+    function hideLegal() {
+      legalModal.classList.remove('open');
+      legalModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      openLegal.focus();
+    }
+
+    openLegal.addEventListener('click', showLegal);
+    closeLegal.addEventListener('click', hideLegal);
+
+    legalModal.addEventListener('click', event => {
+      if (event.target === legalModal) hideLegal();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && legalModal.classList.contains('open')) {
+        hideLegal();
+      }
+    });
+
     // AÑO AUTOMÁTICO EN EL PIE DE PÁGINA
     document.getElementById('year').textContent =
       new Date().getFullYear();
@@ -1587,4 +1848,4 @@
   </script>
 
 </body>
-</html>
+</html>+
